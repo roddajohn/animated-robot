@@ -18,12 +18,14 @@ int main() {
 
   strcpy(line, ""); // To clear the string
 
+  int r;
+  
   for (i = 0; i < 640; i++) {
     for (j = 0; j < 640; j++) {
       char new_pixel[20];
-      int r = ((int)(i / j)) % 255;
-      int g = (i * j) % 255;
-      int b = j % 255;
+      int r = i % 256;
+      int g = (i * j) % 256;
+      int b = j % 256;
       sprintf(new_pixel, "%d %d %d ", r, g, b);
       write(fd, new_pixel, strlen(new_pixel));
     }
